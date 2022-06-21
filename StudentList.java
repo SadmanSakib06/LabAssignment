@@ -10,11 +10,7 @@ public class StudentList {
 		if(args[0].equals("a")) {
 			System.out.println("Loading data ...");			
 			try {
-				BufferedReader bufferedReader = new BufferedReader(
-					new InputStreamReader(
-							new FileInputStream("students.txt"))); 
-				String studentName = bufferedReader.readLine();
-				String strings[] = studentName.split(",");
+				String[] strings = getStrings();
 				for(String string : strings) {
 				System.out.println(string.trim());
 				}
@@ -27,12 +23,7 @@ public class StudentList {
 		else if(args[0].equals("r")) {
 			System.out.println("Loading data ...");			
 			try {
-				BufferedReader bufferedReader = new BufferedReader(
-					new InputStreamReader(
-							new FileInputStream("students.txt"))); 
-				String line = bufferedReader.readLine();
-				//System.out.println(line);
-				String i[] = line.split(",");
+				String i[] = getStrings();
 				Random random = new Random();
 				int number = random.nextInt(i.length);
 				System.out.println(i[number].trim());
@@ -63,11 +54,7 @@ public class StudentList {
 		else if(args[0].contains("?")) {
 			System.out.println("Loading data ...");			
 			try {
-				BufferedReader bufferedReader = new BufferedReader(
-					new InputStreamReader(
-							new FileInputStream("students.txt"))); 
-				String line = bufferedReader.readLine();
-				String i[] = line.split(",");
+				String i[] = getStrings();
 				boolean done = false;
 				String string = args[0].substring(1);
 				for(int index = 0; index<i.length && !done; index++) {
@@ -112,5 +99,14 @@ public class StudentList {
 			System.out.println("Invalid Arguments");	
 		}
 		
+	}
+
+	private static String[] getStrings() throws IOException {
+		BufferedReader bufferedReader = new BufferedReader(
+			new InputStreamReader(
+					new FileInputStream("students.txt")));
+		String studentName = bufferedReader.readLine();
+		String strings[] = studentName.split(",");
+		return strings;
 	}
 }
