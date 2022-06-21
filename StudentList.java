@@ -43,7 +43,7 @@ public class StudentList {
 	        	String dateFormations = Constant.dateFormat;
 	       		DateFormat dateFormat = new SimpleDateFormat(dateFormations);
 	        	String fd= dateFormat.format(date);
-				bufferedWriter.write(", "+string+"\nList last updated on "+fd);
+				bufferedWriter.write(", "+string+ Constant.updateReport +fd);
 				bufferedWriter.close();
 			} 
 			catch (Exception e){
@@ -59,7 +59,7 @@ public class StudentList {
 				String string = args[0].substring(1);
 				for(int index = 0; index<i.length && !done; index++) {
 					if(i[index].equals(string)) {
-						System.out.println("We found it!");
+						System.out.println(Constant.founded);
 						done=true;
 				}
 			}
@@ -88,7 +88,7 @@ public class StudentList {
 						}			
 				}
 			}
-			System.out.println(count +" word(bufferedReader) found ");
+			System.out.println(count + Constant.found);
 			} 
 			catch (Exception e){
 				
