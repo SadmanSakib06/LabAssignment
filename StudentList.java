@@ -6,7 +6,6 @@ import javax.lang.model.util.ElementScanner6;
 public class StudentList {
 	public static void main(String[] args) {
 
-//		Check arguments
 		if(args[0].equals("a")) {
 			System.out.println(Constant.dataLoading);
 			try {
@@ -56,10 +55,9 @@ public class StudentList {
 				String i[] = getStrings();
 				boolean done = false;
 				String string = args[0].substring(1);
-				for(int index = 0; index<i.length && !done; index++) {
+				for(int index = 0; index<i.length; index++) {
 					if(i[index].equals(string)) {
 						System.out.println(Constant.founded);
-						done=true;
 				}
 			}
 			} 
