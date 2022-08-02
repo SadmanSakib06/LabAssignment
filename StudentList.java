@@ -39,10 +39,9 @@ public class StudentList {
 				BufferedWriter bufferedWriter = new BufferedWriter(
 					new FileWriter(Constant.fileName, true));
 				String string = args[0].substring(1);
-	        	Date date = new Date();
 	        	String dateFormations = Constant.dateFormat;
 	       		DateFormat dateFormat = new SimpleDateFormat(dateFormations);
-	        	String fd= dateFormat.format(date);
+	        	String fd= dateFormat.format(new Date());
 				bufferedWriter.write(", "+string+ Constant.updateReport +fd);
 				bufferedWriter.close();
 			} 
